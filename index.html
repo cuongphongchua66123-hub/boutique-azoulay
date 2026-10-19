@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boutique Mohammed Azoulay – Import Export</title>
+    <title>Mohammed Azoulay – Drapeau Algérien Officiel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --vert: #006233;
-            --blanc: #ffffff;
+            --vert-fonce: #004d28;
             --rouge: #d21034;
-            --gris-clair: #f5f7fa;
-            --gris-texte: #333;
-            --ombre: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --rouge-fonce: #b00e2c;
+            --noir: #111;
+            --gris: #666;
+            --fond: #f8f9fb;
+            --blanc: #ffffff;
         }
 
         * {
@@ -21,181 +26,329 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--gris-clair);
-            color: var(--gris-texte);
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--fond);
+            color: var(--noir);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Header */
+        /* ========== HEADER ========== */
         header {
-            background: linear-gradient(135deg, var(--vert), #004d28);
-            color: white;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: var(--blanc);
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            font-size: 1.6rem;
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.3rem;
+            color: var(--vert);
+            letter-spacing: -0.3px;
         }
 
-        header p {
-            font-size: 0.95rem;
-            opacity: 0.9;
+        .logo span {
+            color: var(--rouge);
+            font-weight: 600;
         }
 
-        /* Conteneur principal */
-        main {
-            max-width: 900px;
-            margin: 2.5rem auto;
-            padding: 0 1.2rem;
+        .header-badge {
+            font-size: 0.8rem;
+            color: var(--gris);
+            background: #f0f0f0;
+            padding: 0.35rem 0.8rem;
+            border-radius: 100px;
         }
 
-        .product-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: var(--ombre);
-            overflow: hidden;
+        /* ========== HERO / PRODUIT ========== */
+        .product-section {
+            max-width: 1100px;
+            margin: 3rem auto 4rem;
+            padding: 0 1.5rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
         }
 
-        /* Zone drapeau */
-        .flag-section {
-            background: #f0f4f0;
+        /* Zone image */
+        .media {
+            position: relative;
+        }
+
+        .flag-wrapper {
+            background: linear-gradient(145deg, #e8f0e8, #f5f5f5);
+            border-radius: 20px;
+            padding: 3rem 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2.5rem 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flag-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 98, 51, 0.06), transparent 60%);
         }
 
         .flag {
             width: 100%;
-            max-width: 280px;
+            max-width: 380px;
             aspect-ratio: 3 / 2;
-            border-radius: 6px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Détails produit */
-        .details {
-            padding: 2.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .flag-wrapper:hover .flag {
+            transform: scale(1.03) rotate(-1deg);
         }
 
-        .details h2 {
-            font-size: 1.5rem;
+        /* Badge "depuis 1999" */
+        .since-badge {
+            position: absolute;
+            top: 1.2rem;
+            left: 1.2rem;
+            background: var(--vert);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.4rem 0.9rem;
+            border-radius: 100px;
+            z-index: 5;
+            letter-spacing: 0.3px;
+        }
+
+        /* Détails */
+        .info {
+            padding: 0.5rem 0;
+        }
+
+        .eyebrow {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
             color: var(--vert);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
-        .details ul {
-            list-style: none;
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            color: var(--noir);
+        }
+
+        .description {
+            color: var(--gris);
+            font-size: 1.05rem;
+            margin-bottom: 1.8rem;
+            max-width: 420px;
+        }
+
+        .specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-bottom: 2rem;
+        }
+
+        .spec {
+            background: white;
+            border: 1px solid #e5e5e5;
+            padding: 0.45rem 1rem;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: #444;
+        }
+
+        .price-block {
+            display: flex;
+            align-items: baseline;
+            gap: 0.8rem;
             margin-bottom: 1.8rem;
         }
 
-        .details li {
-            padding: 0.4rem 0;
-            padding-left: 1.4rem;
-            position: relative;
-        }
-
-        .details li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--vert);
-            font-weight: bold;
-        }
-
         .price {
-            font-size: 2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: var(--rouge);
-            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
         }
 
-        .price span {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #666;
+        .old-price {
+            font-size: 1.1rem;
+            color: #999;
+            text-decoration: line-through;
         }
 
-        /* Bouton */
+        .vat {
+            font-size: 0.9rem;
+            color: var(--gris);
+        }
+
+        /* Bouton principal */
         #checkout-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
             background: var(--rouge);
             color: white;
             border: none;
-            padding: 1rem 1.8rem;
+            padding: 1.15rem 2.2rem;
             font-size: 1.05rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 12px rgba(210, 16, 52, 0.3);
+            box-shadow: 0 8px 20px rgba(210, 16, 52, 0.25);
             width: 100%;
-            max-width: 280px;
+            max-width: 320px;
         }
 
         #checkout-button:hover {
-            background: #b50d2c;
+            background: var(--rouge-fonce);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(210, 16, 52, 0.4);
+            box-shadow: 0 12px 28px rgba(210, 16, 52, 0.35);
         }
 
         #checkout-button:active {
             transform: translateY(0);
         }
 
-        /* Footer */
+        #checkout-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .secure {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: var(--gris);
+        }
+
+        .secure svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--vert);
+        }
+
+        /* ========== TRUST BAR ========== */
+        .trust-bar {
+            background: white;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 1.8rem 1.5rem;
+        }
+
+        .trust-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-item svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--vert);
+            stroke-width: 1.8;
+            fill: none;
+        }
+
+        .trust-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #444;
+        }
+
+        /* ========== FOOTER ========== */
         footer {
             text-align: center;
-            padding: 2rem 1rem;
-            color: #777;
+            padding: 2.5rem 1.5rem;
+            color: #888;
             font-size: 0.85rem;
         }
 
-        footer a {
+        footer strong {
             color: var(--vert);
-            text-decoration: none;
         }
 
-        /* Responsive */
-        @media (max-width: 700px) {
-            .product-card {
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 850px) {
+            .product-section {
                 grid-template-columns: 1fr;
+                gap: 2.5rem;
+                margin-top: 2rem;
             }
 
-            .flag-section {
-                padding: 2rem 1rem;
+            h1 {
+                font-size: 2rem;
             }
 
-            .details {
-                padding: 2rem 1.5rem;
-                text-align: center;
+            .flag-wrapper {
+                padding: 2.5rem 1.5rem;
             }
 
-            .details ul {
-                text-align: left;
-                display: inline-block;
+            .trust-inner {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-inner {
+                padding: 1rem;
             }
 
-            #checkout-button {
-                max-width: 100%;
+            .logo {
+                font-size: 1.2rem;
             }
 
-            header h1 {
-                font-size: 1.35rem;
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .price {
+                font-size: 2rem;
             }
         }
     </style>
@@ -203,76 +356,92 @@
 <body>
 
 <header>
-    <h1>Boutique Mohammed Azoulay</h1>
-    <p>Import – Export · Spécialiste du drapeau algérien depuis 1999</p>
+    <div class="header-inner">
+        <div class="logo">Mohammed Azoulay <span>· Import Export</span></div>
+        <div class="header-badge">Depuis 1999</div>
+    </div>
 </header>
 
 <main>
-    <div class="product-card">
-        <!-- Drapeau SVG officiel -->
-        <div class="flag-section">
-            <svg class="flag" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
-                <!-- Vert -->
-                <rect width="450" height="600" fill="#006233"/>
-                <!-- Blanc -->
-                <rect x="450" width="450" height="600" fill="#FFFFFF"/>
-                <!-- Croissant et étoile (rouge) -->
-                <g fill="#D21034">
-                    <!-- Croissant -->
-                    <path d="M 520 300
-                             A 120 120 0 1 1 520 180
-                             A 95 95 0 1 0 520 420
-                             Z"/>
-                    <!-- Étoile à 5 branches -->
-                    <polygon points="620,210 635,255 682,255 645,285 658,330 620,300 582,330 595,285 558,255 605,255"/>
-                </g>
-            </svg>
+    <section class="product-section">
+        <!-- Visuel -->
+        <div class="media">
+            <div class="flag-wrapper">
+                <div class="since-badge">Spécialiste depuis 1999</div>
+                
+                <!-- Drapeau SVG précis -->
+                <svg class="flag" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="450" height="600" fill="#006233"/>
+                    <rect x="450" width="450" height="600" fill="#FFFFFF"/>
+                    <g fill="#D21034">
+                        <!-- Croissant -->
+                        <path d="M520 300
+                                 A120 120 0 1 1 520 180
+                                 A95 95 0 1 0 520 420
+                                 Z"/>
+                        <!-- Étoile -->
+                        <polygon points="620,210 635,255 682,255 645,285 658,330 620,300 582,330 595,285 558,255 605,255"/>
+                    </g>
+                </svg>
+            </div>
         </div>
 
-        <!-- Infos produit -->
-        <div class="details">
-            <h2>Drapeau Algérien Officiel</h2>
-            <ul>
-                <li>Taille : Grand format</li>
-                <li>Couleurs : Vert, Blanc, Rouge</li>
-                <li>Qualité : Imbattable</li>
-            </ul>
-            <div class="price">19,90 € <span>TTC</span></div>
+        <!-- Infos -->
+        <div class="info">
+            <div class="eyebrow">Drapeau officiel</div>
+            <h1>Drapeau Algérien</h1>
+            <p class="description">
+                Le vrai drapeau algérien, en grand format, couleurs officielles et qualité premium. 
+                Livraison soignée depuis plus de 25 ans.
+            </p>
+
+            <div class="specs">
+                <span class="spec">Grand format</span>
+                <span class="spec">Vert · Blanc · Rouge</span>
+                <span class="spec">Qualité imbattable</span>
+            </div>
+
+            <div class="price-block">
+                <span class="price">19,90 €</span>
+                <span class="old-price">29,90 €</span>
+                <span class="vat">TTC</span>
+            </div>
+
             <button id="checkout-button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M6 6h15l-1.5 9h-12z"/>
+                    <circle cx="9" cy="20" r="1"/>
+                    <circle cx="18" cy="20" r="1"/>
+                    <path d="M6 6L5 2H2"/>
+                </svg>
                 Acheter maintenant
             </button>
+
+            <div class="secure">
+                <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg>
+                Paiement 100 % sécurisé par Stripe
+            </div>
+        </div>
+    </section>
+
+    <!-- Barre de confiance -->
+    <div class="trust-bar">
+        <div class="trust-inner">
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Paiement sécurisé</span>
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span>Livraison soignée</span>
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span>Spécialiste depuis 1999</span>
+            </div>
         </div>
     </div>
 </main>
 
 <footer>
-    <p>Paiement sécurisé via Stripe · Site optimisé pour tous les navigateurs modernes</p>
-</footer>
-
-<script>
-    document.getElementById('checkout-button').addEventListener('click', async () => {
-        const btn = document.getElementById('checkout-button');
-        const originalText = btn.innerText;
-        btn.innerText = "Chargement…";
-        btn.disabled = true;
-
-        try {
-            const response = await fetch('/create-checkout-session', { method: 'POST' });
-            const session = await response.json();
-            if (session.url) {
-                window.location.href = session.url;
-            } else {
-                alert("Erreur de connexion !");
-                btn.innerText = originalText;
-                btn.disabled = false;
-            }
-        } catch (err) {
-            alert("Erreur de connexion !");
-            btn.innerText = originalText;
-            btn.disabled = false;
-        }
-    });
-</script>
-
-</body>
-</html>
+    <p><strong>Mohammed Azoulay Import-Export</strong> · Le spécialiste du drapeau algérien sur Internet depuis

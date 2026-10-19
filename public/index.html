@@ -1,58 +1,278 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <title>Boutique Mohammed Azoulay - IMPORT EXPORT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique Mohammed Azoulay – Import Export</title>
+    <style>
+        :root {
+            --vert: #006233;
+            --blanc: #ffffff;
+            --rouge: #d21034;
+            --gris-clair: #f5f7fa;
+            --gris-texte: #333;
+            --ombre: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--gris-clair);
+            color: var(--gris-texte);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--vert), #004d28);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Conteneur principal */
+        main {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            padding: 0 1.2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--ombre);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        /* Zone drapeau */
+        .flag-section {
+            background: #f0f4f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.5rem;
+        }
+
+        .flag {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 3 / 2;
+            border-radius: 6px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        /* Détails produit */
+        .details {
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .details h2 {
+            font-size: 1.5rem;
+            color: var(--vert);
+            margin-bottom: 1rem;
+        }
+
+        .details ul {
+            list-style: none;
+            margin-bottom: 1.8rem;
+        }
+
+        .details li {
+            padding: 0.4rem 0;
+            padding-left: 1.4rem;
+            position: relative;
+        }
+
+        .details li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--vert);
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--rouge);
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
+        }
+
+        /* Bouton */
+        #checkout-button {
+            background: var(--rouge);
+            color: white;
+            border: none;
+            padding: 1rem 1.8rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(210, 16, 52, 0.3);
+            width: 100%;
+            max-width: 280px;
+        }
+
+        #checkout-button:hover {
+            background: #b50d2c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(210, 16, 52, 0.4);
+        }
+
+        #checkout-button:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--vert);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .product-card {
+                grid-template-columns: 1fr;
+            }
+
+            .flag-section {
+                padding: 2rem 1rem;
+            }
+
+            .details {
+                padding: 2rem 1.5rem;
+                text-align: center;
+            }
+
+            .details ul {
+                text-align: left;
+                display: inline-block;
+            }
+
+            #checkout-button {
+                max-width: 100%;
+            }
+
+            header h1 {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
 </head>
-<body bgcolor="#008080" text="#FFFFFF" link="#FFFF00" vlink="#FF00FF">
-    <center>
-        <h1><marquee width="50%" bgcolor="#FF0000">*** BIENVENUE CHEZ MOHAMMED AZOULAY IMPORT-EXPORT ***</marquee></h1>
-        <h2>LE SPECIALISTE DU DRAPEAU ALGERIEN SUR INTERNET (DEPUIS 1999)</h2>
-        <hr width="80%">
-    </center>
-    <center>
-        <table border="5" cellpadding="20" bgcolor="#C0C0C0">
-            <tr>
-                <td align="center">
-                    <div style="width: 200px; height: 130px; display: flex; border: 2px solid black;">
-                        <div style="background-color: green; width: 50%; height: 100%;"></div>
-                        <div style="background-color: white; width: 50%; height: 100%; position: relative;">
-                            <div style="color: red; font-size: 60px; position: absolute; left: -20px; top: 20px;">☪</div>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <font color="#000000" face="Comic Sans MS, Arial">
-                        <h3>Drapeau Algérien Officiel</h3>
-                        <ul>
-                            <li>Taille: Grand</li>
-                            <li>Couleurs: Vert, Blanc, Rouge</li>
-                            <li>Qualité: Imbattable</li>
-                        </ul>
-                        <h2>Prix Spécial: 19.90 €</h2>
-                        <button id="checkout-button" style="background-color: yellow; color: red; font-weight: bold; font-size: 20px; cursor: pointer; border: 3px outset red;">
-                            ACHETER MAINTENANT (PAIEMENT SECURISE STRIPE)
-                        </button>
-                    </font>
-                </td>
-            </tr>
-        </table>
-    </center>
-    <br><br>
-    <center>
-        <img src="https://media.tenor.com/images/330b6df4b0051d9eb70356507eb248e3/tenor.gif" width="150" alt="Work in progress">
-        <p><font size="2">Site optimisé pour Netscape Navigator et Internet Explorer 4.0</font></p>
-    </center>
-    <script>
-        document.getElementById('checkout-button').addEventListener('click', async () => {
-            document.getElementById('checkout-button').innerText = "CHARGEMENT...";
+<body>
+
+<header>
+    <h1>Boutique Mohammed Azoulay</h1>
+    <p>Import – Export · Spécialiste du drapeau algérien depuis 1999</p>
+</header>
+
+<main>
+    <div class="product-card">
+        <!-- Drapeau SVG officiel -->
+        <div class="flag-section">
+            <svg class="flag" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- Vert -->
+                <rect width="450" height="600" fill="#006233"/>
+                <!-- Blanc -->
+                <rect x="450" width="450" height="600" fill="#FFFFFF"/>
+                <!-- Croissant et étoile (rouge) -->
+                <g fill="#D21034">
+                    <!-- Croissant -->
+                    <path d="M 520 300
+                             A 120 120 0 1 1 520 180
+                             A 95 95 0 1 0 520 420
+                             Z"/>
+                    <!-- Étoile à 5 branches -->
+                    <polygon points="620,210 635,255 682,255 645,285 658,330 620,300 582,330 595,285 558,255 605,255"/>
+                </g>
+            </svg>
+        </div>
+
+        <!-- Infos produit -->
+        <div class="details">
+            <h2>Drapeau Algérien Officiel</h2>
+            <ul>
+                <li>Taille : Grand format</li>
+                <li>Couleurs : Vert, Blanc, Rouge</li>
+                <li>Qualité : Imbattable</li>
+            </ul>
+            <div class="price">19,90 € <span>TTC</span></div>
+            <button id="checkout-button">
+                Acheter maintenant
+            </button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>Paiement sécurisé via Stripe · Site optimisé pour tous les navigateurs modernes</p>
+</footer>
+
+<script>
+    document.getElementById('checkout-button').addEventListener('click', async () => {
+        const btn = document.getElementById('checkout-button');
+        const originalText = btn.innerText;
+        btn.innerText = "Chargement…";
+        btn.disabled = true;
+
+        try {
             const response = await fetch('/create-checkout-session', { method: 'POST' });
             const session = await response.json();
-            if(session.url) {
+            if (session.url) {
                 window.location.href = session.url;
             } else {
-                alert("Erreur de connexion avec le serveur !");
-                document.getElementById('checkout-button').innerText = "ACHETER MAINTENANT";
+                alert("Erreur de connexion !");
+                btn.innerText = originalText;
+                btn.disabled = false;
             }
-        });
-    </script>
+        } catch (err) {
+            alert("Erreur de connexion !");
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }
+    });
+</script>
+
 </body>
 </html>

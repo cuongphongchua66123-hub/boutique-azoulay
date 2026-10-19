@@ -28,8 +28,8 @@ app.post('/create-checkout-session', async (req, res) => {
       }],
       mode: 'payment',
       // Pense à remplacer "VOTRE_ADRESSE_RENDER" par ton vrai lien
-      success_url: 'https://VOTRE_ADRESSE_RENDER.onrender.com/index.html?success=true',
-      cancel_url: 'https://VOTRE_ADRESSE_RENDER.onrender.com/index.html?canceled=true',
+      success_url: 'https://boutique-azoulay-abcd.onrender.com?success=true',
+      cancel_url: 'https://boutique-azoulay-abcd.onrender.com?canceled=true',
     });
     res.json({ url: session.url });
   } catch (error) {

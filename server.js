@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-// ATTENTION : Mets ta vraie clé secrète Stripe ci-dessous (sk_live_...)
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc'); 
+
+// La clé est maintenant sécurisée via une variable d'environnement
+const stripe = require('stripe')(process.env.STRIPE_KEY); 
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.post('/create-checkout-session', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       shipping_address_collection: {
-        // On demande l'adresse de livraison pour ces pays
+        // Demande l'adresse de livraison pour ces pays
         allowed_countries: ['FR', 'BE', 'CH', 'DZ', 'CA'], 
       },
       line_items: [{
@@ -26,7 +27,7 @@ app.post('/create-checkout-session', async (req, res) => {
         quantity: 1,
       }],
       mode: 'payment',
-      // Remplace "VOTRE_ADRESSE_RENDER" par ton vrai lien Render plus tard
+      // Pense à remplacer "VOTRE_ADRESSE_RENDER" par ton vrai lien
       success_url: 'https://VOTRE_ADRESSE_RENDER.onrender.com/index.html?success=true',
       cancel_url: 'https://VOTRE_ADRESSE_RENDER.onrender.com/index.html?canceled=true',
     });
@@ -36,6 +37,6 @@ app.post('/create-checkout-session', async (req, res) => {
   }
 });
 
-// La ligne magique pour que Render ne plante pas :
+// Port dynamique pour éviter l'erreur "Application exited early"
 const PORT = process.env.PORT || 4242;
 app.listen(PORT, () => console.log(`✅ Site en ligne sur le port ${PORT} !`));

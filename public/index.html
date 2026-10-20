@@ -33,7 +33,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ========== HEADER ========== */
         header {
             background: var(--blanc);
             border-bottom: 1px solid #eee;
@@ -72,7 +71,6 @@
             border-radius: 100px;
         }
 
-        /* ========== PRODUIT ========== */
         .product-section {
             max-width: 1100px;
             margin: 3rem auto 4rem;
@@ -123,7 +121,7 @@
             transform: scale(1.03) rotate(-1deg);
         }
 
-        .since-badge {
+        .quality-badge {
             position: absolute;
             top: 1.2rem;
             left: 1.2rem;
@@ -137,7 +135,6 @@
             letter-spacing: 0.3px;
         }
 
-        /* Infos */
         .info {
             padding: 0.5rem 0;
         }
@@ -259,7 +256,6 @@
             fill: var(--vert);
         }
 
-        /* Trust bar */
         .trust-bar {
             background: white;
             border-top: 1px solid #eee;
@@ -308,7 +304,6 @@
             color: var(--vert);
         }
 
-        /* Responsive */
         @media (max-width: 850px) {
             .product-section {
                 grid-template-columns: 1fr;
@@ -354,18 +349,16 @@
 <header>
     <div class="header-inner">
         <div class="logo">Mohammed Azoulay <span>· Import Export</span></div>
-        <div class="header-badge">Depuis 1999</div>
+        <div class="header-badge">Qualité premium</div>
     </div>
 </header>
 
 <main>
     <section class="product-section">
-        <!-- Visuel avec vraie image -->
         <div class="media">
             <div class="flag-wrapper">
-                <div class="since-badge">Spécialiste depuis 1999</div>
+                <div class="quality-badge">Couleurs officielles</div>
                 
-                <!-- Vraie image haute qualité du drapeau algérien -->
                 <img 
                     src="https://flagcdn.com/w1280/dz.png" 
                     alt="Drapeau officiel de l'Algérie" 
@@ -376,19 +369,18 @@
             </div>
         </div>
 
-        <!-- Infos -->
         <div class="info">
             <div class="eyebrow">Drapeau officiel</div>
             <h1>Drapeau Algérien</h1>
             <p class="description">
-                Le vrai drapeau algérien, en grand format, couleurs officielles et qualité premium. 
-                Livraison soignée depuis plus de 25 ans.
+                Un drapeau algérien authentique aux proportions et couleurs officielles. 
+                Grand format, finition soignée et tissus de qualité pour une présentation impeccable.
             </p>
 
             <div class="specs">
                 <span class="spec">Grand format</span>
                 <span class="spec">Vert · Blanc · Rouge</span>
-                <span class="spec">Qualité imbattable</span>
+                <span class="spec">Qualité premium</span>
             </div>
 
             <div class="price-block">
@@ -414,7 +406,6 @@
         </div>
     </section>
 
-    <!-- Barre de confiance -->
     <div class="trust-bar">
         <div class="trust-inner">
             <div class="trust-item">
@@ -427,14 +418,14 @@
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                <span>Spécialiste depuis 1999</span>
+                <span>Qualité garantie</span>
             </div>
         </div>
     </div>
 </main>
 
 <footer>
-    <p><strong>Mohammed Azoulay Import-Export</strong> · Le spécialiste du drapeau algérien sur Internet depuis 1999</p>
+    <p><strong>Mohammed Azoulay Import-Export</strong> · Spécialiste du drapeau algérien</p>
 </footer>
 
 <script>
